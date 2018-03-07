@@ -1,0 +1,30 @@
+.action {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    border: solid black;
+    margin: 20px;
+    padding: 20px;
+}
+#activities {
+    overflow-y: scroll;
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+    width: 1000px;
+    padding: 10px;
+    height: 100px;
+    font-size: 10pt;
+    border: solid black;
+}
+#activities>p {
+    margin: 0px;
+}
+.pos {
+    color: green;
+}
+.neg {
+    color: red;
+}

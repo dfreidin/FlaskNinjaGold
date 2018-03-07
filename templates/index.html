@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ninja Money</title>
+        <link rel='stylesheet' href='{{url_for("static", filename="style.css")}}'>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+        <script>
+            $(document).ready(function(){
+                el = document.getElementById("activities")
+                el.scrollTop = el.scrollHeight;
+            });
+        </script>
+    </head>
+    <body>
+        <h3>Your Gold: {{gold}}</h3>
+        <div class="action">
+            <h2>Farm</h2>
+            <h3>(earns 10-20 gold)</h3>
+            <form action="process_money" method="POST">
+                <input type="hidden" name="activity" value="farm">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="action">
+            <h2>Cave</h2>
+            <h3>(earns 5-10 gold)</h3>
+            <form action="process_money" method="POST">
+                <input type="hidden" name="activity" value="cave">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="action">
+            <h2>House</h2>
+            <h3>(earns 2-5 gold)</h3>
+            <form action="process_money" method="POST">
+                <input type="hidden" name="activity" value="house">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="action">
+            <h2>Casino</h2>
+            <h3>(earns/loses 0-50 gold)</h3>
+            <form action="process_money" method="POST">
+                <input type="hidden" name="activity" value="casino">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <p>Activities:</p>
+        <div id="activities">
+            {% for i in range(activities|length) %}
+                <p class="{{activities[i][0]}}">{{activities[i][1]}}</p>
+            {% endfor %}
+        </div>
+        <form action="process_money" method="POST">
+            <input type="hidden" name="activity" value="reset">
+            <input type="submit" value="Reset Gold">
+        </form>
+    </body>
+</html>
